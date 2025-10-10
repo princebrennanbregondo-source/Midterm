@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
+
+/* Backgrounds */
+.bg1 {
+  background: url("background1.jpg") center center no-repeat fixed;
+  background-size: contain; /* index bg not stretched */
+  background-color: #111;   /* filler gray to blend */
+  color: #e0e0e0;
+}
+
+.bg2 {
+  background: url("background2.jpg") center center no-repeat fixed;
+  background-size: cover; /* stretch for contacts */
+  color: #e0e0e0;
+}
+
+.bg3 {
+  background: url("background3.jpg") center center no-repeat fixed;
+  background-size: cover; /* stretch for hobbies */
+  color: #e0e0e0;
+}
+
+/* General text */
+body {
+  font-family: "Times New Roman", serif;
+  margin: 40px;
+  line-height: 1.6;
+  color: #ccc;
+  text-shadow: 1px 1px 3px black;
+}
+
+/* Berserk Header Styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Georgia", serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #b30000; /* blood red */
+  text-shadow: 
+    0 0 5px #000,
+    0 0 15px #660000,
+    0 0 30px #b30000;
+  letter-spacing: 2px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2.8em;
+  border-bottom: 3px solid #660000;
+  padding-bottom: 10px;
+}
+
+h2 { font-size: 2.2em; }
+h3 { font-size: 1.8em; }
+h4 { font-size: 1.5em; }
+h5 { font-size: 1.2em; }
+h6 { font-size: 1em; }
+
+/* Paragraphs */
+p {
+  font-size: 1.1em;
+  margin-bottom: 25px;
+}
+
+/* Navigation (top, guts style) */
+nav {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+nav a {
+  color: #ccc;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #b30000;
+  text-shadow: 0 0 10px #ff0000;
+}
+
+/* Cursed Image (Adadi only) */
+.guts-image {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.guts-image img {
+  max-width: 350px;
+  border: 4px solid #2b0000; /* deep blood red */
+  border-radius: 6px;
+  box-shadow: 0 0 25px #000 inset, 0 0 40px #2b0000;
+  filter: grayscale(60%) contrast(130%) brightness(85%);
+  transition: all 0.4s ease;
+}
+
+/* Hover — Brand of Sacrifice burns */
+.guts-image img:hover {
+  filter: grayscale(0%) contrast(150%) brightness(100%);
+  box-shadow: 0 0 30px #ff0000, 0 0 60px #660000;
+  transform: scale(1.02);
+}
+
+/* ───────────────────────────── */
+/* 👇 ADDITIONAL CONTACT PAGE STYLES */
+/* ───────────────────────────── */
+
+ul.contacts-list {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+ul.contacts-list li {
+  font-size: 1.3rem;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+ul.contacts-list a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+ul.contacts-list a:hover {
+  text-shadow: 0 0 8px #fff;
+}
+
+/* ICON COLORS */
+.fa-facebook { color: #3b5998; }
+.fa-envelope { color: #ffcc00; }
+.fa-discord { color: #7289da; }
+.fa-phone { color: #00ff88; }
+.fa-tiktok { color: #ff0050; }
+.fa-youtube { color: #ff0000; }
+.fa-gamepad { color: #00bcd4; }
+.fa-crosshairs { color: #ff6600; }
+.fa-dragon { color: #c71585; }
+.fa-shield-alt { color: #8b0000; }
+.fa-map-marker-alt { color: #00ffcc; }
+
+.contacts-list li i {
+  font-size: 1.6rem;
+  text-shadow: 0 0 10px currentColor;
+}
+.contacts-list {
+  list-style: none;
+  padding: 0;
+  margin: 40px auto;
+  width: fit-content;
+}
+
+.contacts-list li {
+  background: #111; /* solid dark background */
+  color: #f2f2f2;
+  padding: 8px 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 0 10px #000000a0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contacts-list li:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px #660000;
+}
+
+.contacts-list a {
+  color: #00aaff;
+  text-decoration: none;
+}
+
+.contacts-list a:hover {
+  text-decoration: underline;
+  color: #ff4444;
+}
+
+.contacts-list i {
+  font-size: 1.3rem;
+}
+
+/* ───────────────────────────── */
+/* 🎥 Background Video Fix (preload + fallback) */
+/* ───────────────────────────── */
+
+#bg-video {
+  background: url("background2.jpg") center center / cover no-repeat; /* fallback if video fails */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  filter: brightness(1.6) contrast(1.1) saturate(1.1);
+  transition: opacity 0.5s ease;
+}
+
+/* Smooth fade-in for video */
+#bg-video.loaded {
+  opacity: 1;
+}
+
+/* ───────────────────────────── */
+/* ⚔️ Contact Header Adjustments */
+/* ───────────────────────────── */
+
+.contacts-header {
+  text-align: center;
+  margin-top: 80px;
+  color: #fff;
+}
+
+.contacts-header h1 {
+  font-size: 3em;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 15px #000;
+}
+
+.contacts-header p {
+  color: #ff1a1a;
+  font-weight: 900;
+  font-size: 1.8em;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 0 0 15px #b10000, 0 0 30px #400000;
+  margin-top: 15px;
+}
+
+/* ───────────────────────────── */
+/* ☠️ Warning Text (kept) */
+/* ───────────────────────────── */
+.warning-text {
+  color: #ff2e2e;                  
+  font-weight: bold;
+  font-size: 1.5em;                
+  text-shadow: 0 0 12px #b10000, 0 0 24px #400000;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-top: 10px;
+}
+/* ───────────────────────────── */
+/* 🔳 Readable, Themed Paragraphs on bg1 */
+/* ───────────────────────────── */
+body.bg1 p {
+  background-color: rgba(0, 0, 0, 0.85);  /* solid black with slight transparency */
+  color: #b30000 !important;              /* deep blood red */
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  font-family: 'Cinzel', serif !important;
+  font-size: 1.1em;
+  line-height: 1.8;
+  box-shadow: 0 0 10px #000;
+}
+/* ───────────────────────────── */
+/* 🎯 Hobby Items Style */
+/* ───────────────────────────── */
+.hobby-item {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #b30000;
+  padding: 20px;
+  margin: 30px 0;
+  border-radius: 12px;
+  box-shadow: 0 0 12px #000;
+  font-family: 'Cinzel', serif;
+}
+
+.hobby-item h3 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ff4444;
+  text-shadow: 0 0 10px #000;
+}
+
+.hobby-item p {
+  font-size: 1.1em;
+  line-height: 1.7;
+  margin-top: 10px;
+}
+
+.hobby-img {
+  width: 100%;
+  max-width: 400px;
+  height: 250px;
+  object-fit: contain;       /* show full image */
+  object-position: center;
+  background-color: #111;    /* dark background to fill empty space */
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 10px #330000;
+  display: block;
+}
+.list-container ul li {
+  font-style: italic;
+  color: #cc4444; /* a deep reddish tone */
+  text-shadow: 0 0 6px #660000;
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 1.2em;
+  letter-spacing: 0.03em;
+}
+/* Edgy Quotes Styling for "Other Things I Do" */
+.list-container ul li {
+  font-size: 1.3em;
+  color: #ff4444;              /* bright red matching paragraphs */
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  background-color: black;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 8px #660000;
+}
