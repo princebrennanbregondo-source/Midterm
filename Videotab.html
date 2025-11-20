@@ -6,21 +6,19 @@
   <title>New Tab</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <style>
-    /* Make the video and background fill the screen */
-    body, html {
+    /* Full screen setup */
+    html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       width: 100%;
       overflow: hidden;
+      font-family: Arial, sans-serif;
       background: url('kissme.jpg') no-repeat center center fixed;
       background-size: cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
-    /* Video full screen behind everything */
+    /* Video behind the content */
     #bg-video {
       position: absolute;
       top: 0;
@@ -28,28 +26,85 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      z-index: -1;
+      z-index: 0;
+      opacity: 0.5; /* so image shows behind */
     }
 
-    /* Optional: overlay text in front of video */
-    .overlay-text {
-      color: white;
-      font-size: 2rem;
-      text-align: center;
+    /* Tabs container */
+    .tabs {
+      position: relative;
       z-index: 1;
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      margin: 0 10px;
+      background: rgba(0,0,0,0.5);
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .tab:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    /* Content sections */
+    .tab-content {
+      display: none;
+      color: white;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      margin-top: 50px;
+      font-size: 1.5rem;
+    }
+
+    .tab-content.active {
+      display: block;
     }
   </style>
 </head>
 <body>
-  
+
+  <!-- Background video -->
   <video id="bg-video" autoplay muted loop>
     <source src="Lebron James You Are My Sunshine full song.mp4" type="video/mp4">
   </video>
 
-  <!-- Optional overlay text -->
-  <div class="overlay-text">
-    King Lebron X Queen Curry
+  <!-- Tabs -->
+  <div class="tabs">
+    <div class="tab" onclick="showTab('home')">Home</div>
+    <div class="tab" onclick="showTab('contacts')">Contacts</div>
+    <div class="tab" onclick="showTab('hobbies')">Hobbies</div>
   </div>
+
+  <!-- Tab contents -->
+  <div id="home" class="tab-content active">
+    King lobron x Queen sepen cory
+  </div>
+
+  <div id="contacts" class="tab-content">
+    You can contact me at princebrennanbregondo@gmail.com
+  </div>
+
+  <div id="hobbies" class="tab-content">
+    Here are my hobbies: Gaming, Jogging, Basketball, Eating, Sleeping
+  </div>
+
+  <script>
+    function showTab(tabId) {
+      // Hide all tabs
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(c => c.classList.remove('active'));
+
+      // Show the clicked tab
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
